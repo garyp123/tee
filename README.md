@@ -1,2 +1,0 @@
-# tee
-Created with CodeSandbox

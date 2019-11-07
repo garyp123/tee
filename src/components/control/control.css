@@ -1,0 +1,42 @@
+.controlForm {
+  padding: 20px;
+  min-height: 500px;
+  height: 100%;
+  width: 100%;
+}
+
+.controlBody {
+  min-height: 200px;
+  height: 300px;
+  width: 100%;
+}
+
+.controlSide {
+  height: 100%;
+  width: 25%;
+  float: left;
+}
+
+.controlSide button {
+  width: 100%;
+  background-color: rgb(235, 235, 235);
+  border: none;
+}
+
+.controlSide button:hover {
+  background-color: #f7f7f7;
+  transition: background-color 300ms ease-in;
+}
+
+.controlContent {
+  background-color: #f7f7f7;
+  padding: 10px 20px;
+  text-align: left;
+  float: right;
+  width: 75%;
+  height: 100%;
+}
+
+.controlFooter {
+  padding: 20px;
+}

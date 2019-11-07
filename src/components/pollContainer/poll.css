@@ -1,0 +1,144 @@
+.currentPolls {
+  margin: 10px;
+  border-top: 1px solid rgba(128, 128, 128, 0.322);
+  padding: 10px 10px;
+  height: 100px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.box {
+  /* margin-bottom: -30px; */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: #32a6bb;
+  /* border: 1px solid rgb(179, 179, 179); */
+  position: fixed;
+  bottom: 0;
+  width: 50%;
+  transition: height 300ms ease-in-out;
+  left: 25%;
+}
+
+.boxHeader {
+  /* background-color: rgb(148, 148, 148); */
+  height: 20px;
+  width: 100%;
+}
+
+.move:hover {
+  color: rgb(226, 226, 226);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: color 500ms;
+}
+
+.boxBody {
+  margin: auto;
+  background-color: #f7f7f7;
+  height: 335px;
+  align-content: center;
+  overflow: auto;
+}
+
+.boxContent {
+  position: relative;
+  padding: 20px;
+}
+
+.navButtons {
+  outline: none;
+  flex-basis: 0;
+  flex-grow: 1;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  background-color: rgb(235, 235, 235);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: background-color 500ms ease-out;
+}
+
+.navButtons:hover {
+  background-color: rgb(219, 219, 219);
+  transition: background-color 300ms ease-in;
+}
+
+.boxNav {
+  display: flex;
+  background-color: rgb(235, 235, 235);
+}
+
+.tab {
+  display: none;
+}
+
+.title {
+  color: grey;
+}
+
+.move:focus {
+  outline: none;
+}
+
+.move {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 100%;
+  width: 100%;
+  color: #32a6bb;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background-color: rgb(51, 51, 51, 0);
+  transition: transform 500ms;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
