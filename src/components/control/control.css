@@ -58,7 +58,7 @@
 }
 .deletePoll:focus,
 .addOptions:focus,
-.:focus {
+.addPoll:focus {
   border: none;
   outline: none;
 }
@@ -78,4 +78,5 @@
 
 .newPoll {
   height: 25px;
+  outline: none;
 }
