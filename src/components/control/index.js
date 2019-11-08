@@ -8,8 +8,9 @@ function Controls() {
   const [emptyPoll, setEmptyPoll] = useState("");
   const [newPoll, setNewPoll] = useState("");
   const [currentPolls, setCurrentPolls] = useState([]);
+  const [newOption, setNewOption] = useState([]);
 
-  console.log(newPoll, currentPolls);
+  console.log(newOption);
 
   const add = () => {
     if (newPoll === "") {
@@ -36,6 +37,11 @@ function Controls() {
       }
     }
   };
+
+  const addingOption = i => {
+    setNewOption([...newOption, i]);
+  };
+
   return (
     <div className="controlForm">
       <div className="controlHeader">
@@ -84,6 +90,7 @@ function Controls() {
               >
                 {pollname}
                 <button
+                  onClick={() => addingOption(index)}
                   className="addOptions"
                   style={{
                     backgroundColor: "",
@@ -101,7 +108,18 @@ function Controls() {
                 >
                   Delete
                 </button>
-                <div className="options" />
+                <div className="options" key={index}>
+                  {newOption.map((e, i) => {
+                    if (e === index) {
+                      return (
+                        <div key={i} style={{ padding: "2px" }}>
+                          <input type="text" style={{ height: "25px" }} />
+                          <button className="deleteOption">-</button>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
                 <div />
               </div>
             ))}
