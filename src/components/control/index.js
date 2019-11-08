@@ -1,20 +1,38 @@
 import React from "react";
 import "./control.css";
+import ControlCurrent from "./controlCurrent";
+
 const { useState } = React;
+
 function Controls() {
+  const [emptyPoll, setEmptyPoll] = useState("");
   const [newPoll, setNewPoll] = useState("");
   const [currentPolls, setCurrentPolls] = useState([]);
   console.log(newPoll, currentPolls);
 
   const add = () => {
-    setCurrentPolls(e => [...e, <div> {newPoll}</div>]);
-    setNewPoll("");
+    if (newPoll === "") {
+      setEmptyPoll("Enter a poll pls");
+    } else if (currentPolls.includes(newPoll)) {
+      setEmptyPoll("Poll already exists");
+    } else {
+      setEmptyPoll("");
+      setCurrentPolls(e => [...e, newPoll]);
+      setNewPoll("");
+    }
   };
 
   const handleKeypress = event => {
     if (event.key === "Enter") {
-      setCurrentPolls(e => [...e, newPoll]);
-      setNewPoll("");
+      if (newPoll === "") {
+        setEmptyPoll("Enter a poll pls");
+      } else if (currentPolls.includes(newPoll)) {
+        setEmptyPoll("Poll already exists");
+      } else {
+        setEmptyPoll("");
+        setCurrentPolls(e => [...e, newPoll]);
+        setNewPoll("");
+      }
     }
   };
   return (
@@ -23,22 +41,70 @@ function Controls() {
         <h4>Control polls here</h4>
       </div>
       <div className="controlBody">
+        {/*  */}
         <div className="controlSide">
-          <button>Polls menu</button>
+          <button style={{ backgroundColor: " #f7f7f7" }}>Polls menu</button>
           <button>Suggestion menu</button>
         </div>
+        {/*  */}
         <div className="controlContent">
+          {/*  */}
           <div className="controlAdd">
-            <p>Poll:</p>
-            <input
-              onKeyPress={handleKeypress}
-              value={newPoll}
-              className="newPoll"
-              onChange={e => setNewPoll(e.target.value)}
-            />
-            <button onClick={add}>+</button>
+            <div style={{ display: "flex" }}>
+              <p style={{ clear: "both" }}>Enter a new poll:</p>
+              <input
+                onKeyPress={handleKeypress}
+                value={newPoll}
+                className="newPoll"
+                onChange={e => setNewPoll(e.target.value)}
+              />
+              <button onClick={add}>+</button>
+              <p style={{ float: "center", color: "red" }} value={emptyPoll}>
+                {emptyPoll}
+              </p>
+            </div>
           </div>
-          <div className="controlCurrent">{currentPolls}</div>
+          {/*  */}
+          {/* <ControlCurrent yes="currentPolls" /> */}
+          <div className="controlCurrent">
+            {currentPolls.map((e, i) => (
+              <div
+                style={{
+                  padding: "20px",
+                  width: "100%",
+                  backgroundColor: " #f7f7f7",
+                  // borderBottom: "1px solid black",
+                  margin: "5px"
+                }}
+                name={e}
+                key={i}
+              >
+                {e}
+
+                <button
+                  className="deletePoll"
+                  onClick={() =>
+                    setCurrentPolls(currentPolls.filter(i => i !== e))
+                  }
+                >
+                  -
+                </button>
+                <div className="options" />
+                <div>
+                  <button
+                    className="addOptions"
+                    style={{
+                      backgroundColor: "",
+                      border: "none"
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/*  */}
         </div>
       </div>
       <div className="controlFooter">

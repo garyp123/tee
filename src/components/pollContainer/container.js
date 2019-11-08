@@ -10,7 +10,6 @@ function PollContainer() {
   const tabs = document.getElementsByClassName("tab");
   const buttons = document.getElementsByClassName("navButtons");
   const [pos, setPos] = useState("20px");
-
   const move = () => {
     if (pos === "20px") {
       setPos("400px");

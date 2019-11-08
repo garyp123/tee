@@ -7,8 +7,9 @@
 
 .controlBody {
   min-height: 200px;
-  height: 300px;
+  height: 100%,
   width: 100%;
+  clear: both;
 }
 
 .controlSide {
@@ -29,7 +30,8 @@
 }
 
 .controlContent {
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
+
   padding: 10px 20px;
   text-align: left;
   float: right;
@@ -38,5 +40,26 @@
 }
 
 .controlFooter {
+  clear: both;
   padding: 20px;
+  width: 100%;
+}
+
+.deletePoll{
+  width: 25px;
+  height: 25px;
+  background-color: #d3d3d3;
+
+  border: none;
+  outline: none;
+}
+.deletePoll:focus{
+  border: none;
+  outline: none;
+}
+
+.deletePoll:hover{
+  color: white;
+  background-color: rgb(194, 70, 70);
+  transition: background-color 1s,color 500ms;
 }
