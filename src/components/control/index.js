@@ -8,6 +8,7 @@ function Controls() {
   const [emptyPoll, setEmptyPoll] = useState("");
   const [newPoll, setNewPoll] = useState("");
   const [currentPolls, setCurrentPolls] = useState([]);
+
   console.log(newPoll, currentPolls);
 
   const add = () => {
@@ -58,7 +59,9 @@ function Controls() {
                 className="newPoll"
                 onChange={e => setNewPoll(e.target.value)}
               />
-              <button onClick={add}>+</button>
+              <button className="addPoll" onClick={add}>
+                +
+              </button>
               <p style={{ float: "center", color: "red" }} value={emptyPoll}>
                 {emptyPoll}
               </p>
@@ -67,7 +70,7 @@ function Controls() {
           {/*  */}
           {/* <ControlCurrent yes="currentPolls" /> */}
           <div className="controlCurrent">
-            {currentPolls.map((e, i) => (
+            {currentPolls.map((pollname, index) => (
               <div
                 style={{
                   padding: "20px",
@@ -76,31 +79,30 @@ function Controls() {
                   // borderBottom: "1px solid black",
                   margin: "5px"
                 }}
-                name={e}
-                key={i}
+                name={pollname}
+                key={index}
               >
-                {e}
-
+                {pollname}
+                <button
+                  className="addOptions"
+                  style={{
+                    backgroundColor: "",
+                    border: "none"
+                  }}
+                >
+                  +
+                </button>
                 <button
                   className="deletePoll"
                   onClick={() =>
-                    setCurrentPolls(currentPolls.filter(i => i !== e))
+                    setCurrentPolls(currentPolls.filter(i => i !== pollname))
                   }
+                  style={{ float: "right" }}
                 >
-                  -
+                  Delete
                 </button>
                 <div className="options" />
-                <div>
-                  <button
-                    className="addOptions"
-                    style={{
-                      backgroundColor: "",
-                      border: "none"
-                    }}
-                  >
-                    +
-                  </button>
-                </div>
+                <div />
               </div>
             ))}
           </div>

@@ -2,12 +2,14 @@
   padding: 20px;
   min-height: 500px;
   height: 100%;
-  width: 100%;
+  width: 50%;
+  min-width: 700px;
+  margin: auto;
+  background-color: #f8f8f8c5;
 }
 
 .controlBody {
   min-height: 200px;
-  height: 100%,
   width: 100%;
   clear: both;
 }
@@ -45,21 +47,35 @@
   width: 100%;
 }
 
-.deletePoll{
-  width: 25px;
+.deletePoll,
+.addOptions,
+.addPoll {
   height: 25px;
   background-color: #d3d3d3;
 
   border: none;
   outline: none;
 }
-.deletePoll:focus{
+.deletePoll:focus,
+.addOptions:focus,
+.:focus {
   border: none;
   outline: none;
 }
 
-.deletePoll:hover{
+.deletePoll:hover {
   color: white;
   background-color: rgb(194, 70, 70);
-  transition: background-color 1s,color 500ms;
+  transition: background-color 500ms, color 500ms;
+}
+
+.addOptions:hover,
+.addPoll:hover {
+  color: white;
+  background-color: rgb(70, 194, 87);
+  transition: background-color 500ms, color 500ms;
+}
+
+.newPoll {
+  height: 25px;
 }
