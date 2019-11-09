@@ -9,6 +9,8 @@ function Controls() {
   const [newPoll, setNewPoll] = useState("");
   const [currentPolls, setCurrentPolls] = useState([]);
   const [newOption, setNewOption] = useState([]);
+  const voteOptions = document.getElementsByClassName("options");
+  const [removed, setRemoved] = useState([]);
 
   console.log(newOption);
 
@@ -74,8 +76,15 @@ function Controls() {
             </div>
           </div>
           {/*  */}
-          {/* <ControlCurrent yes="currentPolls" /> */}
-          <div className="controlCurrent">
+          <ControlCurrent
+            setNewOption={setNewOption}
+            setRemoved={setRemoved}
+            newOption={newOption}
+            currentPolls={currentPolls}
+            setCurrentPolls={setCurrentPolls}
+            addingOption={addingOption}
+          />
+          {/* <div className="controlCurrent">
             {currentPolls.map((pollname, index) => (
               <div
                 style={{
@@ -109,12 +118,23 @@ function Controls() {
                   Delete
                 </button>
                 <div className="options" key={index}>
+                  00000000 111111111111111     22222222222222
                   {newOption.map((e, i) => {
                     if (e === index) {
                       return (
                         <div key={i} style={{ padding: "2px" }}>
-                          <input type="text" style={{ height: "25px" }} />
-                          <button className="deleteOption">-</button>
+                          <input
+                            id={`option${i}`}
+                            type="text"
+                            style={{ height: "25px" }}
+                            onKeyPress={e => console.log(e.target.id)}
+                          />
+                          <button
+                            className="deleteOption"
+                            onClick={() => setRemoved(newOption.splice(i, 1))}
+                          >
+                            -{i}
+                          </button>
                         </div>
                       );
                     }
@@ -123,7 +143,7 @@ function Controls() {
                 <div />
               </div>
             ))}
-          </div>
+          </div> */}
           {/*  */}
         </div>
       </div>
